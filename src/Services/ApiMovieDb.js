@@ -23,7 +23,29 @@ const getFilmDetails = movie_id => {
     .get(
       `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=${LANGUAGE}`,
     )
-    .then(response => response.data.results)
+    .then(response => response.data)
     .catch(error => console.log(error));
 };
-export default { getPopulation, getSearchMovies, getFilmDetails };
+const getCast = movie_id => {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${API_KEY}&language=${LANGUAGE}`,
+    )
+    .then(response => response.data)
+    .catch(error => console.log(error));
+};
+const getReviews = movie_id => {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${movie_id}/watch/providers?api_key=${API_KEY}&language=${LANGUAGE}`,
+    )
+    .then(response => response.data)
+    .catch(error => console.log(error));
+};
+export default {
+  getPopulation,
+  getSearchMovies,
+  getFilmDetails,
+  getCast,
+  getReviews,
+};
