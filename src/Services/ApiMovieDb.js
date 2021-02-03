@@ -21,7 +21,7 @@ const getSearchMovies = query => {
 const getFilmDetails = movie_id => {
   return axios
     .get(
-      `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=${LANGUAGE}`,
+      `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=${LANGUAGE}&page=1`,
     )
     .then(response => response.data)
     .catch(error => console.log(error));
@@ -37,7 +37,7 @@ const getCast = movie_id => {
 const getReviews = movie_id => {
   return axios
     .get(
-      `https://api.themoviedb.org/3/movie/${movie_id}/watch/providers?api_key=${API_KEY}&language=${LANGUAGE}`,
+      `https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=${API_KEY}&language=en-US`,
     )
     .then(response => response.data)
     .catch(error => console.log(error));

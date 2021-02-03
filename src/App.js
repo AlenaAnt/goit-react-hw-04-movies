@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import style from './App.module.css';
 
 import routes from './routes';
 
@@ -22,9 +23,11 @@ const MoviesPage = lazy(() =>
 const App = () => (
   <Suspense fallback={<h1>Загружаем...</h1>}>
     <Switch>
-      <Route exact path={routes.home} component={HomePage} />
-      <Route exact path={routes.movies} component={MoviesPage} />
-      <Route path={routes.moviedetails} component={MovieDetailsPage} />
+      <div className={style.container}>
+        <Route exact path={routes.home} component={HomePage} />
+        <Route exact path={routes.movies} component={MoviesPage} />
+        <Route path={routes.moviedetails} component={MovieDetailsPage} />
+      </div>
       {/* <Route path={routes.cast} component={Cast} />
       <Route path={routes.reviews} component={Reviews} /> */}
     </Switch>

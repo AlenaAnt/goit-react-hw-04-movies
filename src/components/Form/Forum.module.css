@@ -1,0 +1,30 @@
+.form {
+  margin: 0 auto;
+  height: auto;
+  width: 300px;
+  text-align: center;
+  outline: none;
+
+  border: solid 1px #597070;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  padding: 5px;
+}
+.form input,
+button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #597070;
+  font-size: 14px;
+  padding: 5px;
+
+  border: none;
+}
+.form button {
+  width: 20%;
+}
+.form input {
+  width: 80%;
+}

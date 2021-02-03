@@ -1,7 +1,8 @@
 import React from 'react';
+import style from './List.module.css';
 
 const List = ({ children }) => {
-  return <ul>{children}</ul>;
+  return <ul className={style.list}>{children}</ul>;
 };
 
 export default List;

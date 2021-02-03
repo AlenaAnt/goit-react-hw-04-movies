@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import style from './Forum.module.css';
+import { ReactComponent as SearchIcon } from '../../icon/search.svg';
 
 class Form extends Component {
   state = { inputValue: '' };
   submitHandler = event => {
     event.preventDefault();
-    this.props.formHandler(this.state.inputValue);
-    this.setState({ inputValue: '' });
+    if (this.state.inputValue !== '') {
+      this.props.formHandler(this.state.inputValue);
+      this.setState({ inputValue: '' });
+    }
   };
   inputChangeHandler = event => {
     this.setState({ inputValue: event.target.value });
@@ -14,14 +18,16 @@ class Form extends Component {
   render() {
     return (
       <>
-        <form onSubmit={this.submitHandler}>
+        <form className={style.form} onSubmit={this.submitHandler}>
           <input
             type="text"
             placeholder="Search film"
             value={this.state.inputValue}
             onChange={this.inputChangeHandler}
           />
-          <button type="submit">Search</button>
+          <button type="submit">
+            <SearchIcon width="20px" height="30px" />
+          </button>
         </form>
       </>
     );

@@ -3,6 +3,7 @@ import NavBar from '../components/NavBar';
 import ApiMovieDb from '../Services/ApiMovieDb';
 import List from '../components/List';
 import ListItem from '../components/ListItem/ListItem';
+// import style from './HomePage.module.css';
 
 class HomePage extends Component {
   state = {
@@ -13,15 +14,15 @@ class HomePage extends Component {
   }
   render() {
     return (
-      <>
+      <div>
         <NavBar />
-        <h1>HomePage</h1>
+
         <List>
           {this.state.dataFilms.map(dataFilm => {
             return <ListItem key={dataFilm.id} dataFilm={dataFilm} />;
           })}
         </List>
-      </>
+      </div>
     );
   }
 }

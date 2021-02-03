@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+.nav_li {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #21dddd;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding-bottom: 15px;
+}
+
+.nav_li:hover {
+  transform: scale(1.2);
+  color: #1621f2;
+}

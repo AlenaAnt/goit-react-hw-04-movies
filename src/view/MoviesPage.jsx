@@ -17,8 +17,10 @@ class Movies extends Component {
   render() {
     return (
       <>
-        <NavBar />
-        <h1>Movies</h1>
+        <div>
+          <NavBar />
+        </div>
+
         <Form formHandler={this.formHandler} />
         <List>
           {this.state.dataFilms.map(dataFilm => {

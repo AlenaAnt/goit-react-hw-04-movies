@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
+import ActorCard from '../ActorCard/ActorCard';
 // import { withRouter } from 'react-router';
 
 import ApiMovieDb from '../../Services/ApiMovieDb';
 
 class Cast extends Component {
-  state = {};
+  state = { casts: [] };
+  componentDidMount() {
+    ApiMovieDb.getCast(this.props.movieId).then(actors =>
+      this.setState({ casts: actors.cast }),
+    );
+  }
   render() {
-    console.log(ApiMovieDb.getCast(this.props.movieId));
-    ApiMovieDb.getCast(this.props.movieId).then(cast => console.log(cast));
     return (
       <>
-        <h1>Cast</h1>;
+        {this.state.casts.map(actor => {
+          return (
+            <ActorCard
+              key={actor.id}
+              path={actor.profile_path}
+              name={actor.name}
+              department={actor.known_for_department}
+            />
+          );
+        })}
       </>
     );
   }
